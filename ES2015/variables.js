@@ -66,6 +66,6 @@ function _handleError (func) {
   try {
     func();
   } catch (e) {
-    console.error(e);
+    console.log(e);
   }
 }

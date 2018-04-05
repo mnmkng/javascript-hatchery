@@ -1,3 +1,5 @@
+"use strict";
+
 // TEMPLATE LITERALS
 // essentially interpolated strings defined using BACK-TICKS
 const person1 = "Martin";

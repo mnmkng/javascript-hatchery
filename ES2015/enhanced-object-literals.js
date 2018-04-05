@@ -69,7 +69,7 @@ console.log(fakeClass.oldStuff); // Awesome Stuff, Not so Awesome Stuff
 try {
   fakeClass.oldStuff = "FAIL";
 } catch (e) {
-  console.error(e); // TypeError: Cannot set property oldStuff of #<Object> which has only a getter
+  console.log(e); // TypeError: Cannot set property oldStuff of #<Object> which has only a getter
 }
 
 // COMPUTED PROPERTY NAMES
