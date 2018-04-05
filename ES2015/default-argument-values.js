@@ -9,3 +9,9 @@ withDefaults(); // undefined undefined 'c'
 withDefaults("a", "b"); // a b c
 withDefaults("one", "two", "three"); // one two three
 withDefaults(null, null, null); // null null null <---- null will NOT be overridden by default
+
+function withFunctionCall(first, second = Math.floor(Math.random() * 1000)) {
+  console.log(first, second);
+}
+
+withFunctionCall("random number: "); // "random number: ???"
