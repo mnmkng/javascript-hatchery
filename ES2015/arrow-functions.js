@@ -49,7 +49,7 @@ function returnThis () {
 // of its lexical scope, whatever it actually is
 assert.deepEqual(...returnThis());
 
-// You could assume that both method's THIS and func's THIS
+// You could assume that both shorthandMethod's THIS and func's THIS
 // would be the same, but it is not the case.
 const object = {
   data: "some stuff",
