@@ -10,6 +10,7 @@ withDefaults("a", "b"); // a b c
 withDefaults("one", "two", "three"); // one two three
 withDefaults(null, null, null); // null null null <---- null will NOT be overridden by default
 
+// the default can even be a function call (any expression, really)
 function withFunctionCall(first, second = Math.floor(Math.random() * 1000)) {
   console.log(first, second);
 }
