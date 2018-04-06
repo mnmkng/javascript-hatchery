@@ -11,11 +11,11 @@
 // last argument into a promise returning function
 const { promisify } = require("util");
 const { readFile } = require("fs");
-const fakeApi = require("../helpers/fakeApi");
+const { get } = require("../helpers/fakeApi");
 
 // let's enhance callback style readfile and fakeApi
 const rf = promisify(readFile);
-const api = promisify(fakeApi);
+const api = promisify(get);
 // rf and api now return a promise
 
 // simple example that logs the content of this file
@@ -72,7 +72,7 @@ promise.then(data => console.log(data));
 // And now let's try wrapping a callback function
 // into a promise.
 const wrapper = new Promise((resolve, reject) => {
-  fakeApi((err, data) => {
+  get((err, data) => {
     if (err) return reject(err);
     return resolve(data);
   })
