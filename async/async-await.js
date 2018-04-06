@@ -80,12 +80,16 @@ async function main () {
           try {
             return await post(key);
           } catch (e) {
+            // unhandled, the promise would reject with error
+            // this way it will resolve with false
+            // and will not break Promise.all() below
             return false;
           }
         });
 
     // The loop populates an array with pending promises
     // because each post(key) returns a promise.
+    // Promise.all waits until all the promises resolve (or one rejects)
     await Promise.all(promises);
     return promises.reduce((secret, result) => result ? result : secret)
   }
