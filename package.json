@@ -1,0 +1,24 @@
+{
+  "name": "Javascript Hatchery",
+  "version": "1.0.0",
+  "description": "Javascript Hatchery",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mnmkng/javascript-hatchery.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mnmkng/javascript-hatchery/issues"
+  },
+  "homepage": "https://github.com/mnmkng/javascript-hatchery#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3"
+  }
+}
