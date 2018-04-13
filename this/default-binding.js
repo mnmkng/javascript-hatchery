@@ -2,7 +2,7 @@
  * Let's showcase how this works with
  * default binding.
  */
-globalVar = "Hi!"
+globalVar = "Hi!";
 
 function defaultB() {
   console.log(this.globalVar) // Hi!
