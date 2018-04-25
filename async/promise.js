@@ -56,7 +56,7 @@ rf(__filename)
  * Let's look into creating your own Promises.
  */
 const promise = new Promise((resolve, reject) => {
-  setTimeout(() => resolve("Hello World!"), 200);
+  setTimeout(() => resolve("Hello World!"), 500);
 });
 
 // The promise is pending immediately after creation.
@@ -68,6 +68,15 @@ console.log("I am not done yet!", promise);
 // As long as you do it in the current synchronous execution,
 // you will be fine.
 promise.then(data => console.log(data));
+
+// You can also attach the handler asynchronously later,
+// or even after the promise has already resolved.
+setTimeout(() => {
+  promise.then(data => console.log(data + " from Timeout"))
+}, 100);
+setTimeout(() => {
+  promise.then(data => console.log(data + " after promise resolved."))
+}, 1000);
 
 // And now let's try wrapping a callback function
 // into a promise.
