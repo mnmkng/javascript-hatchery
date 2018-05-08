@@ -47,6 +47,9 @@ async function main () {
 
 
   // you can of course build much more complicated functions
+  // this function tries to "brute force" the fake API
+  // by hitting the post endpoint with all possible keys
+  // to find the hidden secret
   async function bruteForce () {
 
     // this function is an await-able timeout
