@@ -18,8 +18,4 @@ try {
   console.error(err);
 }
 
-const Database = {
-  getById: () => {}
-};
-
 // FIX IT, BEFORE CONTINUING
