@@ -20,12 +20,14 @@ const api = promisify(get);
 
 // simple example that logs the content of this file
 // __filename is a shorthand to get its path
+// (1)
 rf(__filename).then(data => {
   const string = data.toString(); // fs.readFile returns a Buffer
   console.log(string.split("\n")[ 0 ]); // PROMISES;
 });
 
 // .then() returns a promise, so they can be chained
+// (2)
 rf(__filename)
   .then(data => {
     const string = data.toString().split("\n")[ 0 ];
@@ -35,10 +37,12 @@ rf(__filename)
   .then(data => console.log("SECOND HANDLER: ", data.toUpperCase())); // "USE STRICT";
 
 // error handling is similar to .then()
+// (3)
 rf("/nonexistentfile").catch(err => console.error(err.message)); // ENOENT: no such file or directory, open '/nonexistentfile'
 
 // this is probably the most common way to use promises
 // if you run it multiple times, you will see the message change
+// (4)
 api()
   .then(data => console.log("STATUS:", data.status))
   .catch(err => console.error(err.message));
@@ -46,6 +50,7 @@ api()
 // A great thing about promise handlers is that
 // you can throw errors inside and the resulting
 // promise will automatically reject.
+// (5)
 rf(__filename)
   .then(() => {
     throw new Error("Error from Promise handler.")
@@ -55,6 +60,7 @@ rf(__filename)
 /**
  * Let's look into creating your own Promises.
  */
+// (6)
 const promise = new Promise((resolve, reject) => {
   setTimeout(() => resolve("Hello World!"), 500);
 });
@@ -67,10 +73,12 @@ console.log("I am not done yet!", promise);
 // The .then() handler doesn't have to be attached immediately.
 // As long as you do it in the current synchronous execution,
 // you will be fine.
+// (7)
 promise.then(data => console.log(data));
 
 // You can also attach the handler asynchronously later,
 // or even after the promise has already resolved.
+// (8)
 setTimeout(() => {
   promise.then(data => console.log(data + " from Timeout"))
 }, 100);
@@ -80,6 +88,7 @@ setTimeout(() => {
 
 // And now let's try wrapping a callback function
 // into a promise.
+// (9)
 const wrapper = new Promise((resolve, reject) => {
   get((err, data) => {
     if (err) return reject(err);
