@@ -23,7 +23,7 @@ const api = promisify(get);
 // (1)
 rf(__filename).then(data => {
   const string = data.toString(); // fs.readFile returns a Buffer
-  console.log(string.split("\n")[ 0 ]); // PROMISES;
+  console.log(string.split("\n")[ 0 ]); // "use strict";
 });
 
 // .then() returns a promise, so they can be chained
